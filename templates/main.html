@@ -1,0 +1,42 @@
+<h4 id="hello">
+    {{if $account_type != 'guest'}}
+    Hi, {{$user_name}}
+    {{/if}}
+</h4>
+<br />
+<div id="po-text-html">
+    {{if $account_type != 'guest'}}
+    {{include 'po_text.html'}}
+    {{/if}}
+</div>
+<div id="po-panel-list">
+    {{foreach $posts as $po}}
+    {{include 
+        'po_panel.html'
+        po=$po
+        account_type=$account_type
+        my_user_id=$my_user_id
+    }}
+	{{/foreach}}
+</div>
+<br />
+<ul id="main-pagination" class="pagination"></ul>
+
+<div class="modal fade" id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal-p"></p>
+                <textarea id="modal-text" class="form-control" rows="6" required="required"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="modal-ok-btn"></button>
+            </div>
+        </div>
+    </div>
+</div>

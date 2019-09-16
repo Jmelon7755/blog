@@ -1,0 +1,12 @@
+.clear-right {
+    clear: right;
+}
+
+.float-right {
+    float: right;
+}
+
+p {
+    white-space: pre-wrap;
+    word-break: break-all;
+}

@@ -1,0 +1,23 @@
+<div id="po-panel-{{$po->id}}" class="clear-right">
+    <br />
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{if $account_type === "administrator" || $my_user_id === $po->user_id}}
+            <div class="dropdown float-right">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><span
+                        class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <input type="hidden" value="{{$po->id}}">
+                    {{if $my_user_id === $po->user_id}}
+                    <li><a class="edit-po-btn" data-toggle="modal" href="#modal">編輯</a></li>
+                    {{/if}}
+                    <li><a class="delete-po-btn" data-toggle="modal" href="#modal">刪除</a></li>
+                </ul>
+            </div>
+            {{/if}}
+            <p class="panel-title">{{$po->name}}說:</p>
+            <br />
+            <p id="po-panel-text-{{$po->id}}" class="panel-title clear-right">{{$po->content}}</p>
+        </div>
+    </div>
+</div>

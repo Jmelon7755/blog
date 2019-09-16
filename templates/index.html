@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JBlog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed" role="navigation">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">JBlog</a>
+            <ul id="func-btn" class="nav navbar-nav navbar-right">
+                {{if $account_type === 'guest'}}
+                <li><a id="navbar-login-btn" href="#">登入</a></li>
+                <li><a id="navbar-register-btn" href="#">註冊</a></li>
+                {{else}}
+                <li><a id="navbar-logout-btn" data-toggle='modal' href='#modal'>登出</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main" class="container">
+        {{if $page_type === 'main'}}
+        {{include 'main.html'}}
+        {{elseif $page_type === 'register'}}
+        {{'register.html'}}
+        {{else}}
+        {{'login.html'}}
+        {{/if}}
+    </div>
+
+    <script src="js/User.js"></script>
+    <script src="js/Po.js"></script>
+    <script src="js/Index.js" defer></script>
+</body>
+
+</html>
